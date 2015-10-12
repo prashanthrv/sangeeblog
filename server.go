@@ -24,7 +24,7 @@ func main() {
 
 	var application = &system.Application{}
 
-	application.Init(filename)
+	application.Init(&filename)
 	application.LoadTemplates()
 
 	// Setup static files
