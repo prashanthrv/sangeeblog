@@ -9,11 +9,11 @@ import (
 	"strings"
 
 	//"gopkg.in/gorp.v1"
-	"github.com/go-utils/uslice"
-	"github.com/golang/glog"
-	"github.com/gorilla/sessions"
+	"github.com/prashanthrv/sangeeblog/Godeps/_workspace/src/github.com/go-utils/uslice"
+	"github.com/prashanthrv/sangeeblog/Godeps/_workspace/src/github.com/golang/glog"
+	"github.com/prashanthrv/sangeeblog/Godeps/_workspace/src/github.com/gorilla/sessions"
 	//"github.com/haruyama/golang-goji-sample/models"
-	"github.com/zenazn/goji/web"
+	"github.com/prashanthrv/sangeeblog/Godeps/_workspace/src/github.com/zenazn/goji/web"
 )
 
 // Makes sure templates are stored in the context

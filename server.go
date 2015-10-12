@@ -3,15 +3,15 @@ package main
 import (
 	"net/http"
 
-	"github.com/golang/glog"
-	//"github.com/gorilla/context"
+	"github.com/prashanthrv/sangeeblog/Godeps/_workspace/src/github.com/golang/glog"
+	"github.com/prashanthrv/sangeeblog/Godeps/_workspace/src/github.com/gorilla/context"
 
 	"github.com/prashanthrv/sangeeblog/controllers"
 	"github.com/prashanthrv/sangeeblog/system"
 
-	"github.com/zenazn/goji"
-	"github.com/zenazn/goji/graceful"
-	"github.com/zenazn/goji/web"
+	"github.com/prashanthrv/sangeeblog/Godeps/_workspace/src/github.com/zenazn/goji"
+	"github.com/prashanthrv/sangeeblog/Godeps/_workspace/src/github.com/zenazn/goji/graceful"
+	"github.com/prashanthrv/sangeeblog/Godeps/_workspace/src/github.com/zenazn/goji/web"
 	//"golang.org/x/net/http2"
 )
 
