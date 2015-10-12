@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	"github.com/golang/glog"
-	"github.com/gorilla/context"
+	//"github.com/gorilla/context"
 
 	"github.com/prashanthrv/sangeeblog/controllers"
 	"github.com/prashanthrv/sangeeblog/system"
