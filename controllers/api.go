@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	"github.com/haruyama/golang-goji-sample/system"
+	"github.com/prashanthrv/sangeeblog/system"
 )
 
 type ApiController struct {

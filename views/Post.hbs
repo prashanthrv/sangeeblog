@@ -1,0 +1,37 @@
+<div class="container-fluid" id="panel">
+  <div class="row">
+    <div class="col-md-12 mainBGRight">
+      <div class="row navBar">
+        <div class="postPageLogo">
+          <a href="/">Sangeetha Kannan</a>
+        </div>
+        <div class="menuButton" id="sideMenu">
+        </div>
+        <div class="loginButton">
+          Login
+        </div>
+      </div>
+      <div class="row postPageHeader">
+          <div class="col-md-8 col-md-offset-2">
+            <div class="col-md-3" style="padding:0px;">
+              <div class="row postAuthorPic">
+              </div>
+              <div class="row postTime">
+                <h4>{{time post.postCreated 'format'}}</h4>
+              </div>
+            </div>
+            <div class="col-md-9">
+              <div class="row postPageTitle">
+                {{post.postTitle}}
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="row postPageContent">
+        <div class="col-md-8 col-md-offset-2">
+          {{{post.Content}}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

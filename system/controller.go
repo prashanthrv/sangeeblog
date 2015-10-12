@@ -4,9 +4,10 @@ import (
 	"bytes"
 	"html/template"
 
-	"gopkg.in/gorp.v1"
+	//"gopkg.in/gorp.v1"
 	"github.com/gorilla/sessions"
 	"github.com/zenazn/goji/web"
+	"github.com/jinzhu/gorm"
 )
 
 type Controller struct {
@@ -20,8 +21,11 @@ func (controller *Controller) GetTemplate(c web.C) *template.Template {
 	return c.Env["Template"].(*template.Template)
 }
 
-func (controller *Controller) GetDbMap(c web.C) *gorp.DbMap {
-	return c.Env["DbMap"].(*gorp.DbMap)
+// func (controller *Controller) GetDbMap(c web.C) *gorp.DbMap {
+// 	return c.Env["DbMap"].(*gorp.DbMap)
+// }
+func (controller *Controller) GetGormDB(c web.C) *gorm.DB {
+	return c.Env["GormDB"].(*gorm.DB)
 }
 
 func (controller *Controller) IsXhr(c web.C) bool {

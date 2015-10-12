@@ -1,0 +1,51 @@
+<div class="container-fluid" id="panel">
+  <div class="row">
+    <div class="col-md-6 mainBGLeft">
+      <div class="mainLogo">
+        Sangeetha Kannan
+      </div>
+    </div>
+    <div class="col-md-6 mainBGRight">
+      <div class="row navBar">
+        <div class="menuButton" id="sideMenu">
+        </div>
+        <div class="loginButton">
+          Login
+        </div>
+      </div>
+      <div class="row" style="min-height:30px;">
+      </div>
+      {{#each posts as |post|}}
+        <div class="row postRow">
+          <div class="col-md-10 col-md-offset-1">
+            <div class="row">
+              <div class="col-md-3">
+                <h4>{{time post.postCreated 'format'}}</h4>
+              </div>
+              <div class="col-md-3">
+                <a href="/category/{{post.Category.ID}}"><h4 class="catLink">• {{post.Category.CategoryName}}</h4></a>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <a href="/post/{{post.ID}}"><h1>{{post.postTitle}}</h1></a>
+              </div>
+            </div>
+            <div class="row postContent">
+              <div class="col-md-12">
+                {{{post.content}}}
+              </div>
+              <div class="postEllipsis">...</div>
+            </div>
+            <div class="row readMore">
+              <div class="col-md-2">
+                <a href="/post/{{post.ID}}">READ</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+
+    </div>
+  </div>
+</div>

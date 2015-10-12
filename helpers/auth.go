@@ -3,7 +3,7 @@ package helpers
 import (
 	"golang.org/x/crypto/bcrypt"
 	"gopkg.in/gorp.v1"
-	"github.com/haruyama/golang-goji-sample/models"
+	"github.com/prashanthrv/sangeeblog/models"
 )
 
 func Login(dbMap *gorp.DbMap, email string, password string) (*models.User, error) {

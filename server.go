@@ -7,12 +7,13 @@ import (
 	"github.com/golang/glog"
 	"github.com/gorilla/context"
 
-	"github.com/haruyama/golang-goji-sample/controllers"
-	"github.com/haruyama/golang-goji-sample/system"
+	"./controllers"
+	"./system"
 
 	"github.com/zenazn/goji"
 	"github.com/zenazn/goji/graceful"
 	"github.com/zenazn/goji/web"
+	//"golang.org/x/net/http2"
 )
 
 func main() {
@@ -36,8 +37,9 @@ func main() {
 	// Apply middleware
 	goji.Use(application.ApplyTemplates)
 	goji.Use(application.ApplySessions)
-	goji.Use(application.ApplyDbMap)
-	goji.Use(application.ApplyAuth)
+	//goji.Use(application.ApplyDbMap)
+	goji.Use(application.ApplyGormDB)
+	//goji.Use(application.ApplyAuth)
 	goji.Use(application.ApplyIsXhr)
 	goji.Use(application.ApplyCsrfProtection)
 	goji.Use(context.ClearHandler)
@@ -49,7 +51,7 @@ func main() {
 	goji.Get("/favicon.ico", http.FileServer(http.Dir(publicPath+"/images")))
 
 	// Home page
-	goji.Get("/", application.Route(controller, "Index"))
+	goji.Get("/", application.Route(controller, "Blog"))
 
 	// Sign In routes
 	goji.Get("/signin", application.Route(controller, "SignIn"))
@@ -62,8 +64,14 @@ func main() {
 	// KTHXBYE
 	goji.Get("/logout", application.Route(controller, "Logout"))
 
+	goji.Get("/blog", application.Route(controller, "Blog"))
+	goji.Get("/post/:postid", application.Route(controller, "Post"))
+	goji.Get("/category/:categoryid", application.Route(controller, "Categories"))
+	goji.Get("/page/:pageid", application.Route(controller, "Pages"))
+
 	graceful.PostHook(func() {
 		application.Close()
 	})
 	goji.Serve()
+	//http2.ConfigureServer(http, &http2.Server{})
 }

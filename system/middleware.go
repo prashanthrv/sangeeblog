@@ -8,11 +8,11 @@ import (
 	"net/http"
 	"strings"
 
-	"gopkg.in/gorp.v1"
+	//"gopkg.in/gorp.v1"
 	"github.com/go-utils/uslice"
 	"github.com/golang/glog"
 	"github.com/gorilla/sessions"
-	"github.com/haruyama/golang-goji-sample/models"
+	//"github.com/haruyama/golang-goji-sample/models"
 	"github.com/zenazn/goji/web"
 )
 
@@ -35,32 +35,40 @@ func (application *Application) ApplySessions(c *web.C, h http.Handler) http.Han
 	return http.HandlerFunc(fn)
 }
 
-func (application *Application) ApplyDbMap(c *web.C, h http.Handler) http.Handler {
+// func (application *Application) ApplyDbMap(c *web.C, h http.Handler) http.Handler {
+// 	fn := func(w http.ResponseWriter, r *http.Request) {
+// 		c.Env["DbMap"] = application.DbMap
+// 		h.ServeHTTP(w, r)
+// 	}
+// 	return http.HandlerFunc(fn)
+// }
+
+func (application *Application) ApplyGormDB(c *web.C, h http.Handler) http.Handler {
 	fn := func(w http.ResponseWriter, r *http.Request) {
-		c.Env["DbMap"] = application.DbMap
+		c.Env["GormDB"] = application.GormDB
 		h.ServeHTTP(w, r)
 	}
 	return http.HandlerFunc(fn)
 }
 
-func (application *Application) ApplyAuth(c *web.C, h http.Handler) http.Handler {
-	fn := func(w http.ResponseWriter, r *http.Request) {
-		session := c.Env["Session"].(*sessions.Session)
-		if userId, ok := session.Values["UserId"]; ok {
-			dbMap := c.Env["DbMap"].(*gorp.DbMap)
-
-			user, err := dbMap.Get(models.User{}, userId)
-			if err != nil {
-				glog.Warningf("Auth error: %v", err)
-				c.Env["User"] = nil
-			} else {
-				c.Env["User"] = user
-			}
-		}
-		h.ServeHTTP(w, r)
-	}
-	return http.HandlerFunc(fn)
-}
+// func (application *Application) ApplyAuth(c *web.C, h http.Handler) http.Handler {
+// 	fn := func(w http.ResponseWriter, r *http.Request) {
+// 		session := c.Env["Session"].(*sessions.Session)
+// 		if userId, ok := session.Values["UserId"]; ok {
+// 			dbMap := c.Env["DbMap"].(*gorp.DbMap)
+//
+// 			user, err := dbMap.Get(models.User{}, userId)
+// 			if err != nil {
+// 				glog.Warningf("Auth error: %v", err)
+// 				c.Env["User"] = nil
+// 			} else {
+// 				c.Env["User"] = user
+// 			}
+// 		}
+// 		h.ServeHTTP(w, r)
+// 	}
+// 	return http.HandlerFunc(fn)
+// }
 
 func (application *Application) ApplyIsXhr(c *web.C, h http.Handler) http.Handler {
 	fn := func(w http.ResponseWriter, r *http.Request) {
