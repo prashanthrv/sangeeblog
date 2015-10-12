@@ -7,7 +7,7 @@
     "prashanth",
     "arcenix"
   ],
-  "image": "heroku/go:1.5",
+  "image": "heroku/go:1.4.2",
   "mount_dir": "src/github.com/prashanthrv/sangeeblog",
   "website": "https://github.com/prashanthrv/sangeeblog",
   "repository": "https://github.com/prashanthrv/sangeeblog"
