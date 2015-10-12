@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-# Golang Goji Sample
+# Gohan Framework
 
 Sample Web Application based on https://github.com/elcct/defaultproject
 
@@ -42,4 +41,3 @@ This file starts your web application and also contains routes definition.
 =======
 # sangeeblog
 Sangee Blog
->>>>>>> ded31082b20e57e53e2e4956d34c3357ca7371b3

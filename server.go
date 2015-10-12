@@ -7,8 +7,8 @@ import (
 	"github.com/golang/glog"
 	"github.com/gorilla/context"
 
-	"./controllers"
-	"./system"
+	"github.com/prashanthrv/sangeeblog/controllers"
+	"github.com/prashanthrv/sangeeblog/system"
 
 	"github.com/zenazn/goji"
 	"github.com/zenazn/goji/graceful"
