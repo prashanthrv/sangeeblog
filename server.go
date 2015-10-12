@@ -1,7 +1,6 @@
 package main
 
 import (
-	"flag"
 	"net/http"
 
 	"github.com/golang/glog"
@@ -17,9 +16,10 @@ import (
 )
 
 func main() {
-	filename := flag.String("config", "config.toml", "Path to configuration file")
-
-	flag.Parse()
+	// filename := flag.String("config", "config.toml", "Path to configuration file")
+	//
+	// flag.Parse()
+	filename := "config.toml"
 	defer glog.Flush()
 
 	var application = &system.Application{}
