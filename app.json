@@ -1,0 +1,14 @@
+{
+  "name": "sangeeblog",
+  "description": "Gohan framework test.",
+  "keywords": [
+    "gohan",
+    "sangee",
+    "prashanth",
+    "arcenix"
+  ],
+  "image": "heroku/go:1.5",
+  "mount_dir": "src/github.com/prashanthrv/sangeeblog",
+  "website": "https://github.com/prashanthrv/sangeeblog",
+  "repository": "https://github.com/prashanthrv/sangeeblog"
+}
