@@ -23,11 +23,11 @@ _testmain.go
 *.test
 <<<<<<< HEAD
 
-/config.toml
 *~
 .*.swp
 tmp/*
 golang-goji-sample
+sangeeblog
 =======
 *.prof
 >>>>>>> ded31082b20e57e53e2e4956d34c3357ca7371b3
