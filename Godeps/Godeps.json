@@ -1,6 +1,9 @@
 {
 	"ImportPath": "github.com/prashanthrv/sangeeblog",
 	"GoVersion": "go1.4.2",
+	"Packages": [
+		"./..."
+	],
 	"Deps": [
 		{
 			"ImportPath": "github.com/aymerick/raymond/ast",

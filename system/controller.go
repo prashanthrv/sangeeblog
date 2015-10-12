@@ -5,9 +5,9 @@ import (
 	"html/template"
 
 	//"gopkg.in/gorp.v1"
-	"github.com/gorilla/sessions"
-	"github.com/zenazn/goji/web"
-	"github.com/jinzhu/gorm"
+	"github.com/prashanthrv/sangeeblog/Godeps/_workspace/src/github.com/gorilla/sessions"
+	"github.com/prashanthrv/sangeeblog/Godeps/_workspace/src/github.com/jinzhu/gorm"
+	"github.com/prashanthrv/sangeeblog/Godeps/_workspace/src/github.com/zenazn/goji/web"
 )
 
 type Controller struct {

@@ -11,15 +11,15 @@ import (
 
 	"crypto/sha256"
 
-	"github.com/golang/glog"
-	"github.com/gorilla/sessions"
-	"github.com/prashanthrv/sangeeblog/models"
-	"github.com/pelletier/go-toml"
-	"github.com/zenazn/goji/web"
-	"gopkg.in/gorp.v1"
-	"github.com/jinzhu/gorm"
-	"github.com/prashanthrv/raymond"
 	"fmt"
+	"github.com/prashanthrv/sangeeblog/Godeps/_workspace/src/github.com/golang/glog"
+	"github.com/prashanthrv/sangeeblog/Godeps/_workspace/src/github.com/gorilla/sessions"
+	"github.com/prashanthrv/sangeeblog/Godeps/_workspace/src/github.com/jinzhu/gorm"
+	"github.com/prashanthrv/sangeeblog/Godeps/_workspace/src/github.com/pelletier/go-toml"
+	"github.com/prashanthrv/sangeeblog/Godeps/_workspace/src/github.com/prashanthrv/raymond"
+	"github.com/prashanthrv/sangeeblog/Godeps/_workspace/src/github.com/zenazn/goji/web"
+	"github.com/prashanthrv/sangeeblog/Godeps/_workspace/src/gopkg.in/gorp.v1"
+	"github.com/prashanthrv/sangeeblog/models"
 	"time"
 )
 
@@ -35,7 +35,7 @@ type Application struct {
 	Template       *template.Template
 	Store          *sessions.CookieStore
 	DbMap          *gorp.DbMap
-	GormDB				 *gorm.DB
+	GormDB         *gorm.DB
 	CsrfProtection *CsrfProtection
 }
 
@@ -74,15 +74,15 @@ func (application *Application) Init(filename *string) {
 	application.Config = config
 	//Helpers register
 	raymond.RegisterHelper("time", func(input, format string) raymond.SafeString {
-			fmt.Println(input)
-	    t, err := time.Parse("2006-01-02 15:04:05.00000000 +0000 UTC", input)
-			if err!=nil {
-				t, err = time.Parse("2006-01-02 15:04:05.000000000 +0000 UTC", input)
-				if err!=nil {
-					panic(err)
-				}
+		fmt.Println(input)
+		t, err := time.Parse("2006-01-02 15:04:05.00000000 +0000 UTC", input)
+		if err != nil {
+			t, err = time.Parse("2006-01-02 15:04:05.000000000 +0000 UTC", input)
+			if err != nil {
+				panic(err)
 			}
-			return raymond.SafeString(t.Format("January 2006"))
+		}
+		return raymond.SafeString(t.Format("January 2006"))
 	})
 }
 

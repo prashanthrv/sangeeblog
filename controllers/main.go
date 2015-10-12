@@ -7,12 +7,14 @@ import (
 
 	"html/template"
 
+	"github.com/prashanthrv/sangeeblog/Godeps/_workspace/src/github.com/zenazn/goji/web"
 	"github.com/prashanthrv/sangeeblog/helpers"
 	"github.com/prashanthrv/sangeeblog/models"
 	"github.com/prashanthrv/sangeeblog/system"
-	"github.com/zenazn/goji/web"
-//	"fmt"
+
+	//	"fmt"
 )
+
 type MainController struct {
 	system.Controller
 }
@@ -127,69 +129,69 @@ func (controller *MainController) Index(c web.C, r *http.Request) (string, int) 
 // }
 
 func (controller *MainController) Blog(c web.C, r *http.Request) (string, int) {
-		gormDB := controller.GetGormDB(c)
-		posts := models.GetPosts(gormDB)
-		categories := models.GetCategories(gormDB)
-		pages := models.GetPages(gormDB)
-    ctx := map[string]interface{}{
-            "title": "Prashanth",
-            "description":  "Im the One.",
-						"bottomline": "Bottom Message",
-						"posts": posts,
-						"categories": categories,
-						"pages": pages,
-    			}
-		finalHTML := helpers.RenderFileInLayout("Index","default",ctx)
-		return finalHTML, http.StatusOK
+	gormDB := controller.GetGormDB(c)
+	posts := models.GetPosts(gormDB)
+	categories := models.GetCategories(gormDB)
+	pages := models.GetPages(gormDB)
+	ctx := map[string]interface{}{
+		"title":       "Prashanth",
+		"description": "Im the One.",
+		"bottomline":  "Bottom Message",
+		"posts":       posts,
+		"categories":  categories,
+		"pages":       pages,
+	}
+	finalHTML := helpers.RenderFileInLayout("Index", "default", ctx)
+	return finalHTML, http.StatusOK
 }
 func (controller *MainController) Post(c web.C, r *http.Request) (string, int) {
-		postid := c.URLParams["postid"]
-		gormDB := controller.GetGormDB(c)
-		post := models.GetPost(gormDB,postid)
-		categories := models.GetCategories(gormDB)
-		pages := models.GetPages(gormDB)
-    ctx := map[string]interface{}{
-            "title": "Prashanth",
-            "description":  "Im the One.",
-						"bottomline": "Bottom Message",
-						"post": post,
-						"categories": categories,
-						"pages": pages,
-    			}
-		finalHTML := helpers.RenderFileInLayout("Post","default",ctx)
-		return finalHTML, http.StatusOK
+	postid := c.URLParams["postid"]
+	gormDB := controller.GetGormDB(c)
+	post := models.GetPost(gormDB, postid)
+	categories := models.GetCategories(gormDB)
+	pages := models.GetPages(gormDB)
+	ctx := map[string]interface{}{
+		"title":       "Prashanth",
+		"description": "Im the One.",
+		"bottomline":  "Bottom Message",
+		"post":        post,
+		"categories":  categories,
+		"pages":       pages,
+	}
+	finalHTML := helpers.RenderFileInLayout("Post", "default", ctx)
+	return finalHTML, http.StatusOK
 }
 func (controller *MainController) Categories(c web.C, r *http.Request) (string, int) {
-		categoryid := c.URLParams["categoryid"]
-		gormDB := controller.GetGormDB(c)
-		posts := models.GetPostsByID(gormDB,categoryid)
-		categories := models.GetCategories(gormDB)
-		pages := models.GetPages(gormDB)
-    ctx := map[string]interface{}{
-            "title": "Prashanth",
-            "description":  "Im the One.",
-						"bottomline": "Bottom Message",
-						"posts": posts,
-						"categories": categories,
-						"pages": pages,
-    			}
-		finalHTML := helpers.RenderFileInLayout("Index","default",ctx)
-		return finalHTML, http.StatusOK
+	categoryid := c.URLParams["categoryid"]
+	gormDB := controller.GetGormDB(c)
+	posts := models.GetPostsByID(gormDB, categoryid)
+	categories := models.GetCategories(gormDB)
+	pages := models.GetPages(gormDB)
+	ctx := map[string]interface{}{
+		"title":       "Prashanth",
+		"description": "Im the One.",
+		"bottomline":  "Bottom Message",
+		"posts":       posts,
+		"categories":  categories,
+		"pages":       pages,
+	}
+	finalHTML := helpers.RenderFileInLayout("Index", "default", ctx)
+	return finalHTML, http.StatusOK
 }
 func (controller *MainController) Pages(c web.C, r *http.Request) (string, int) {
-		pageid := c.URLParams["pageid"]
-		gormDB := controller.GetGormDB(c)
-		posts := models.GetPostsByPage(gormDB,pageid)
-		categories := models.GetCategories(gormDB)
-		pages := models.GetPages(gormDB)
-    ctx := map[string]interface{}{
-            "title": "Prashanth",
-            "description":  "Im the One.",
-						"bottomline": "Bottom Message",
-						"posts": posts,
-						"categories": categories,
-						"pages": pages,
-    			}
-		finalHTML := helpers.RenderFileInLayout("Index","default",ctx)
-		return finalHTML, http.StatusOK
+	pageid := c.URLParams["pageid"]
+	gormDB := controller.GetGormDB(c)
+	posts := models.GetPostsByPage(gormDB, pageid)
+	categories := models.GetCategories(gormDB)
+	pages := models.GetPages(gormDB)
+	ctx := map[string]interface{}{
+		"title":       "Prashanth",
+		"description": "Im the One.",
+		"bottomline":  "Bottom Message",
+		"posts":       posts,
+		"categories":  categories,
+		"pages":       pages,
+	}
+	finalHTML := helpers.RenderFileInLayout("Index", "default", ctx)
+	return finalHTML, http.StatusOK
 }
