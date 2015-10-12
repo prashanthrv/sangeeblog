@@ -35,14 +35,14 @@ func main() {
 	http.Handle("/assets/", static)
 
 	// Apply middleware
-	goji.Use(application.ApplyTemplates)
-	goji.Use(application.ApplySessions)
+	//goji.Use(application.ApplyTemplates)
+	//goji.Use(application.ApplySessions)
 	//goji.Use(application.ApplyDbMap)
 	goji.Use(application.ApplyGormDB)
 	//goji.Use(application.ApplyAuth)
-	goji.Use(application.ApplyIsXhr)
-	goji.Use(application.ApplyCsrfProtection)
-	goji.Use(context.ClearHandler)
+	//goji.Use(application.ApplyIsXhr)
+	//goji.Use(application.ApplyCsrfProtection)
+	//goji.Use(context.ClearHandler)
 
 	controller := &controllers.MainController{}
 
