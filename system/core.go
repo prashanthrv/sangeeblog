@@ -46,14 +46,14 @@ func (application *Application) Init(filename *string) {
 		glog.Fatalf("TOML load failed: %s\n", err)
 	}
 
-	hash := sha256.New()
-	io.WriteString(hash, config.Get("cookie.mac_secret").(string))
-	application.Store = sessions.NewCookieStore(hash.Sum(nil))
-	application.Store.Options = &sessions.Options{
-		Path:     "/",
-		HttpOnly: true,
-		Secure:   config.Get("cookie.secure").(bool),
-	}
+	//hash := sha256.New()
+	//io.WriteString(hash, config.Get("cookie.mac_secret").(string))
+	//application.Store = sessions.NewCookieStore(hash.Sum(nil))
+	// application.Store.Options = &sessions.Options{
+	// 	Path:     "/",
+	// 	HttpOnly: true,
+	// 	Secure:   config.Get("cookie.secure").(bool),
+	// }
 	//dbConfig := config.Get("database").(*toml.TomlTree)
 	// application.DbMap = models.GetDbMap(
 	// 	dbConfig.Get("user").(string),
@@ -64,12 +64,12 @@ func (application *Application) Init(filename *string) {
 
 	application.GormDB = models.GetDB("gohan")
 
-	application.CsrfProtection = &CsrfProtection{
-		Key:    config.Get("csrf.key").(string),
-		Cookie: config.Get("csrf.cookie").(string),
-		Header: config.Get("csrf.header").(string),
-		Secure: config.Get("cookie.secure").(bool),
-	}
+	// application.CsrfProtection = &CsrfProtection{
+	// 	Key:    config.Get("csrf.key").(string),
+	// 	Cookie: config.Get("csrf.cookie").(string),
+	// 	Header: config.Get("csrf.header").(string),
+	// 	Secure: config.Get("cookie.secure").(bool),
+	// }
 
 	application.Config = config
 	//Helpers register
