@@ -9,7 +9,7 @@ import (
 	"reflect"
 	"strings"
 
-	"crypto/sha256"
+	//"crypto/sha256"
 
 	"github.com/golang/glog"
 	"github.com/gorilla/sessions"
