@@ -2,8 +2,8 @@ package models
 
 import (
 	"github.com/prashanthrv/sangeeblog/Godeps/_workspace/src/github.com/jinzhu/gorm"
-	"time"
-	"fmt"
+	//"time"
+	//"fmt"
 	_ "github.com/prashanthrv/sangeeblog/Godeps/_workspace/src/github.com/mattn/go-sqlite3"
 	"path"
 )
