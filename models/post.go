@@ -21,22 +21,22 @@ type Post struct {
 }
 
 func GetPosts(db *gorm.DB) interface{} {
-	db.Preload("Category").Find(&ReturnData.Posts)
+	db.Preload("Category").Order("post_created desc").Find(&ReturnData.Posts)
 	return ReturnData.Posts
 }
 
 func GetPost(db *gorm.DB, postid string) interface{} {
 	post := Post{}
-	db.Preload("Category").Find(&post, "id =?", postid)
+	db.Preload("Category").First(&post, "id =?", postid)
 	return post
 }
 
 func GetPostsByID(db *gorm.DB, categoryid string) interface{} {
-	db.Preload("Category", "ID = ?", categoryid).Find(&ReturnData.Posts, "category_id =?", categoryid)
+	db.Preload("Category", "ID = ?", categoryid).Order("post_created desc").Find(&ReturnData.Posts, "category_id =?", categoryid)
 	return ReturnData.Posts
 }
 
 func GetPostsByPage(db *gorm.DB, pageid string) interface{} {
-	db.Preload("Category").Find(&ReturnData.Posts, "page_id =?", pageid)
+	db.Preload("Category").Order("post_created desc").Find(&ReturnData.Posts, "page_id =?", pageid)
 	return ReturnData.Posts
 }
