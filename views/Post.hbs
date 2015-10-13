@@ -13,16 +13,19 @@
       </div>
       <div class="row postPageHeader">
           <div class="col-md-8 col-md-offset-2">
-            <div class="col-md-3" style="padding:0px;">
+            <div class="col-md-2" style="padding:0px;">
               <div class="row postAuthorPic">
               </div>
-              <div class="row postTime">
-                <h4>{{time post.postCreated 'format'}}</h4>
-              </div>
             </div>
-            <div class="col-md-9">
+            <div class="col-md-10" style="padding-left:30px;">
               <div class="row postPageTitle">
                 {{post.postTitle}}
+              </div>
+              <div class="row postTime">
+                {{time post.postCreated 'format'}}
+              </div>
+              <div class="row postTime">
+                <a href="/category/{{post.Category.ID}}"><span class="catLink">{{post.Category.CategoryName}}</span></a>
               </div>
             </div>
           </div>

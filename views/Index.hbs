@@ -18,12 +18,14 @@
       {{#each posts as |post|}}
         <div class="row postRow">
           <div class="col-md-10 col-md-offset-1">
-            <div class="row">
-              <div class="col-md-3">
-                <h4>{{time post.postCreated 'format'}}</h4>
-              </div>
-              <div class="col-md-3">
-                <a href="/category/{{post.Category.ID}}"><h4 class="catLink">• {{post.Category.CategoryName}}</h4></a>
+            <div class="row" style="margin-bottom:10px; margin-left:-13px;">
+              <div class="col-md-12">
+                <div class="pull-left" style="margin-right:5px;">
+                  {{time post.postCreated 'format'}}
+                </div>
+                <div class="pull-left">
+                  <a href="/category/{{post.Category.ID}}"><span class="catLink">• {{post.Category.CategoryName}}</span></a>
+                </div>
               </div>
             </div>
             <div class="row">
