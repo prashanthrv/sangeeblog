@@ -157,7 +157,7 @@ h1{
   font-weight: 300;
 }
 .menuButton{
-	background-image: url("/assets/images/menubutton.png");
+	background-image: url("/assets/images/menuButton.png");
 	border-radius: 2px;
 	background-size: 27px 27px;
 	width: 27px;
